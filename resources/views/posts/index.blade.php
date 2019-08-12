@@ -18,6 +18,7 @@
                     <thead>
                     <th>Image</th>
                     <th>Title</th>
+                    <th>Category</th>
                     <th></th>
                     <th></th>
                     </thead>
@@ -29,6 +30,11 @@
                             </td>
                             <td>
                                 {{ $post->title }}
+                            </td>
+                            <td>
+                                <a href="{{ route('categories.edit', $post->category_id) }}">
+                                    {{ $post->category->name }}
+                                </a>
                             </td>
                             <td>
                                 @if($post->trashed())
