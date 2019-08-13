@@ -80,7 +80,7 @@
         function handleDelete(id) {
             var form = document.getElementById('deleteCategoryForm');
             form.action = '/categories/' + id;
-            $('#deleteModel').modal('show')
+            $('#deleteModel').modal('show');
         }
     </script>
 

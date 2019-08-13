@@ -11,6 +11,10 @@ use Illuminate\Http\Response;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('VerifyCategoriesCount')->only(['create', 'store']);
+    }
     /**
      * Display a listing of the resource.
      *
