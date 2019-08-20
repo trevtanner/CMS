@@ -4454,7 +4454,7 @@ __webpack_require__.r(__webpack_exports__);
     for (var i = 0, len = elements.length; i < len; i++) {
       var _ret = _loop(i, len);
 
-      if (_ret === "continue")
+      if (_ret === "continue") continue;
     }
 
     return createdDocument.body.innerHTML;
@@ -7820,7 +7820,7 @@ getText = Sizzle.getText = function( elem ) {
 	} else if ( nodeType === 3 || nodeType === 4 ) {
 		return elem.nodeValue;
 	}
-	// Do not include comment or processing instruction nodes
+	// Do not includes comment or processing instruction nodes
 
 	return ret;
 };
@@ -9024,8 +9024,8 @@ function nodeName( elem, name ) {
 
   return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 
-}
-    var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
+};
+var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
 
 
 
@@ -13247,7 +13247,7 @@ function genFx( type, includeWidth ) {
 		i = 0,
 		attrs = { height: type };
 
-	// If we include width, step value is 1 to do all cssExpand values,
+	// If we includes width, step value is 1 to do all cssExpand values,
 	// otherwise step value is 2 to skip over Left and Right
 	includeWidth = includeWidth ? 1 : 0;
 	for ( ; i < 4; i += 2 - includeWidth ) {
@@ -16231,7 +16231,7 @@ support.createHTMLDocument = ( function() {
 // Argument "data" should be string of html
 // context (optional): If specified, the fragment will be created in this context,
 // defaults to document
-// keepScripts (optional): If true, will include scripts passed in the html string
+// keepScripts (optional): If true, will includes scripts passed in the html string
 jQuery.parseHTML = function( data, context, keepScripts ) {
 	if ( typeof data !== "string" ) {
 		return [];
@@ -16805,9 +16805,17 @@ return jQuery;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;
-            (function () {
-                /** Used as a safe reference for `undefined` in pre-ES5 environments. */
+/* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * @license
+ * Lodash <https://lodash.com/>
+ * Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
+ * Released under MIT license <https://lodash.com/license>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */
+;(function() {
+
+  /** Used as a safe reference for `undefined` in pre-ES5 environments. */
   var undefined;
 
   /** Used as the semantic version number. */
@@ -35294,7 +35302,7 @@ function isModifierRequired(modifiers, requestingName, requestedName) {
   if (!isRequired) {
     var _requesting = '`' + requestingName + '`';
     var requested = '`' + requestedName + '`';
-    console.warn(requested + ' modifier is required by ' + _requesting + ' modifier in order to work, be sure to include it before ' + _requesting + '!');
+    console.warn(requested + ' modifier is required by ' + _requesting + ' modifier in order to work, be sure to includes it before ' + _requesting + '!');
   }
   return isRequired;
 }
@@ -36474,7 +36482,7 @@ var Popper = function () {
     /**
      * Collection of utilities useful when writing custom modifiers.
      * Starting from version 1.7, this method is available only if you
-     * include `popper-utils.js` before `popper.js`.
+     * includes `popper-utils.js` before `popper.js`.
      *
      * **DEPRECATION**: This way to access PopperUtils is deprecated
      * and will be removed in v2! Use the PopperUtils module directly instead.
@@ -36567,7 +36575,7 @@ function defaultClearTimeout () {
     } catch (e) {
         cachedClearTimeout = defaultClearTimeout;
     }
-} ());
+} ())
 function runTimeout(fun) {
     if (cachedSetTimeout === setTimeout) {
         //normal enviroments in sane situations
@@ -36704,7 +36712,7 @@ process.emit = noop;
 process.prependListener = noop;
 process.prependOnceListener = noop;
 
-process.listeners = function (name) { return [] };
+process.listeners = function (name) { return [] }
 
 process.binding = function (name) {
     throw new Error('process.binding is not supported');
@@ -37004,16 +37012,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 var render = function() {
-  var _vm = this;
-  var _h = _vm.$createElement;
-  var _c = _vm._self._c || _h;
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
   return _vm._m(0)
-};
+}
 var staticRenderFns = [
   function() {
-    var _vm = this;
-    var _h = _vm.$createElement;
-    var _c = _vm._self._c || _h;
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-8" }, [
@@ -37032,7 +37040,7 @@ var staticRenderFns = [
       ])
     ])
   }
-];
+]
 render._withStripped = true
 
 
@@ -37068,12 +37076,12 @@ function normalizeComponent (
   // Vue.extend constructor export interop
   var options = typeof scriptExports === 'function'
     ? scriptExports.options
-    : scriptExports;
+    : scriptExports
 
   // render functions
   if (render) {
-    options.render = render;
-    options.staticRenderFns = staticRenderFns;
+    options.render = render
+    options.staticRenderFns = staticRenderFns
     options._compiled = true
   }
 
@@ -37087,14 +37095,14 @@ function normalizeComponent (
     options._scopeId = 'data-v-' + scopeId
   }
 
-  var hook;
+  var hook
   if (moduleIdentifier) { // server build
     hook = function (context) {
       // 2.3 injection
       context =
         context || // cached call
         (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
       // 2.2 with runInNewContext: true
       if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
         context = __VUE_SSR_CONTEXT__
@@ -37107,7 +37115,7 @@ function normalizeComponent (
       if (context && context._registeredComponents) {
         context._registeredComponents.add(moduleIdentifier)
       }
-    };
+    }
     // used by ssr in case component is cached and beforeCreate
     // never gets called
     options._ssrRegister = hook
@@ -37121,16 +37129,16 @@ function normalizeComponent (
     if (options.functional) {
       // for template-only hot-reload because in that case the render fn doesn't
       // go through the normalizer
-      options._injectStyles = hook;
+      options._injectStyles = hook
       // register for functioal component in vue file
-      var originalRender = options.render;
+      var originalRender = options.render
       options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context);
+        hook.call(context)
         return originalRender(h, context)
       }
     } else {
       // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
+      var existing = options.beforeCreate
       options.beforeCreate = existing
         ? [].concat(existing, hook)
         : [hook]
@@ -38039,7 +38047,7 @@ methodsToPatch.forEach(function (method) {
       case 'push':
       case 'unshift':
         inserted = args;
-        break;
+        break
       case 'splice':
         inserted = args.slice(2);
         break
@@ -44009,14 +44017,14 @@ function parseFilters (exp) {
       }
     } else {
       switch (c) {
-        case 0x22: inDouble = true; break;         // "
-        case 0x27: inSingle = true; break;         // '
-        case 0x60: inTemplateString = true; break; // `
-        case 0x28: paren++; break;                 // (
-        case 0x29: paren--; break;                 // )
-        case 0x5B: square++; break;                // [
-        case 0x5D: square--; break;                // ]
-        case 0x7B: curly++; break;                 // {
+        case 0x22: inDouble = true; break         // "
+        case 0x27: inSingle = true; break         // '
+        case 0x60: inTemplateString = true; break // `
+        case 0x28: paren++; break                 // (
+        case 0x29: paren--; break                 // )
+        case 0x5B: square++; break                // [
+        case 0x5D: square--; break                // ]
+        case 0x7B: curly++; break                 // {
         case 0x7D: curly--; break                 // }
       }
       if (c === 0x2f) { // /
@@ -49299,11 +49307,11 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null
   
-);
+)
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/ExampleComponent.vue";
+component.options.__file = "resources/js/components/ExampleComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),

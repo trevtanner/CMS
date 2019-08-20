@@ -3,6 +3,7 @@
 @section('content')
     <div class="card card-default">
         <div class="card-header">
+            @include('partials.errors')
             {{isset($post) ? 'Edit Post' : 'Create Post'}}
         </div>
         <div class="card-body">
@@ -34,7 +35,7 @@
                     <label for="published_at">Published At</label>
                     <input type="text" class="form-control" name="published_at" id="published_at" value="{{ isset($post) ? $post->published_at : '' }}">
                 </div>
-                
+
                 @if(isset($post))
                     <div class="form-group">
                         <img src="{{ asset('storage/' . $post->image) }}" alt="" style="width: 100%">
@@ -49,18 +50,35 @@
                     <select name="category" id="category" class="form-control">
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}"
-                      @if(isset($post))
-                      @if($category->id === $post->category_id)
-                      selected
+                                    @if(isset($post))
+                                    @if($category->id === $post->category_id)
+                                    selected
                                     @endif
                                     @endif
 
-                                >{{ $category->name }}</option>
+                            >{{ $category->name }}</option>
 
 
                         @endforeach
                     </select>
                 </div>
+                @if($tags->count() > 0)
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <select name="tags[]" id="tags" class="form-control tagselector" multiple>
+                    @foreach($tags as $tag)
+                            <option value="{{ $tag->id }}"
+                                @if(isset($post))
+                                @if($post->hasTag($tag->id)))
+                                selected
+                                    @endif
+                                @endif
+                            >
+                                {{ $tag->name }}</option>
+                    @endforeach
+                    </select>
+                </div>
+                @endif
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">
                         {{ isset($post) ? 'Update Post' : 'Create Post' }}
@@ -75,10 +93,15 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
     <script>
         flatpickr('#published_at',{
             enableTime: true
         })
+
+        $(document).ready(function() {
+            $('.tagselector').select2();
+        });
     </script>
 
 
@@ -88,5 +111,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
 
 @endsection

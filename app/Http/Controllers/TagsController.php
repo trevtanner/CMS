@@ -17,7 +17,7 @@ class TagsController extends Controller
      */
     public function index()
     {
-        return view('tags.index')->with('Tags', Tag::all());
+        return view('tags.index')->with('tags', Tag::all());
     }
 
     /**
@@ -66,10 +66,10 @@ class TagsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit(Tag $Tag)
+    public function edit(Tag $tag)
     {
 
-        return view('tags.create')->with('Tag', $Tag);
+        return view('tags.create')->with('tag', $tag);
 
     }
 
@@ -80,15 +80,15 @@ class TagsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(UpdateTagRequest $request, Tag $Tag)
+    public function update(UpdateTagRequest $request, Tag $tag)
     {
-        $Tag->update([
+        $tag->update([
 
             'name' => $request->name
 
         ]);
 
-        $Tag->save();
+        $tag->save();
 
         session()->flash('success', 'Tag updated successfully.');
 
@@ -101,10 +101,16 @@ class TagsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy(Tag $Tag)
+    public function destroy(Tag $tag)
     {
 
-        $Tag->delete();
+        if ($tag->posts->count() > 0){
+            session()->flash('error', 'Tag cannot be deleted because it is associated some posts.');
+
+            return redirect()->back();
+        }
+
+        $tag->delete();
 
         session()->flash('success', 'Tag deleted successfully');
 
