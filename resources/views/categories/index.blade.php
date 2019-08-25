@@ -83,6 +83,4 @@
             $('#deleteModel').modal('show');
         }
     </script>
-
-
 @endsection
